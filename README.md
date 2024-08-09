@@ -135,3 +135,9 @@ To set up the application locally, follow these steps:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+<img width="1423" alt="Screenshot 2024-08-09 at 21 33 56" src="https://github.com/user-attachments/assets/a5ac9666-c4f8-4817-9e94-67e1a8a385a0">
+<img width="1422" alt="Screenshot 2024-08-09 at 21 29 19" src="https://github.com/user-attachments/assets/664d61c6-fb1e-430b-9c81-4c1280ccb613">
+<img width="1427" alt="Screenshot 2024-08-09 at 21 28 56" src="https://github.com/user-attachments/assets/d23a2217-ddfb-4b0e-b097-53bfc73b9bce">
+<img width="1428" alt="Screenshot 2024-08-09 at 21 28 34" src="https://github.com/user-attachments/assets/abb63c5f-28ac-40ef-be00-a6f71aca3684">
+<img width="374" alt="Screenshot 2024-08-09 at 21 26 23" src="https://github.com/user-attachments/assets/ef89f098-1383-4b51-a63f-bf379e15945a">
+

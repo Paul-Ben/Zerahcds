@@ -19,7 +19,7 @@ class TeacherController extends Controller
     $user = Auth::user();
     $students = User::where('class_id', $user->class_id)->where('role', 'student')->count();
     $classrooms = Classroom::where('teacher_id', $user->id)->count();
-    // dd($classrooms);
+   
     return view('teacher.dashboard', compact('students', 'classrooms'));
   }
 
@@ -41,7 +41,7 @@ class TeacherController extends Controller
   {
     $user = Auth::user();
     $topics = Content::where('teacher_id', $user->id)->get();
-    // dd($topics);
+    
     return view('teacher.classcontentform', compact('topics'));
   }
 
@@ -51,10 +51,10 @@ class TeacherController extends Controller
     $request->validate([
       'topic' => 'required',
       'title' => 'required',
-      'video' => 'nullable|file|mimes:mp4,mov,avi,mpeg|max:20480', // 20MB max
-      'document' => 'nullable|file|mimes:pdf|max:10240', // 10MB max
+      'video' => 'nullable|file|mimes:mp4,mov,avi,mpeg|max:204800', // 200MB max
+      'document' => 'nullable|file|mimes:pdf|max:102400', // 100MB max
     ]);
-dd($request->all());
+
     // Assign request data to the content model
     $content->topic = $request->topic;
     $content->title = $request->title;

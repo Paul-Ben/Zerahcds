@@ -53,10 +53,7 @@ class ClassroomController extends Controller
     public function edit(Classroom $classroom, User $user)
     {
         $teachers = User::where('role', 'teacher')->get();
-        //  $teacher_id = User::where('role', 'teacher')->pluck('id')->toArray();
-        //  $teachers->pluck('id')->toArray();
-
-        // dd($teacher_id);
+       
         return view('admin.classes.edit', compact('classroom', 'teachers'));
     }
 

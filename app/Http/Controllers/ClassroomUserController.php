@@ -51,7 +51,7 @@ class ClassroomUserController extends Controller
             $user->save();
         }
 
-        return redirect()->route('class.users')->with('success', 'Classroom User created successfully');
+        return redirect()->route('class.users')->with('success', 'Classroom User assigned to class successfully');
     }
 
     /**

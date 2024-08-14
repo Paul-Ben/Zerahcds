@@ -88,7 +88,15 @@ To set up the application locally, follow these steps:
    php artisan db:seed
    ```
 
-9. **Link the Storage**:
+9. **Build node requirements**:
+
+   Build node dependencies.
+
+   ```bash
+   npm run build
+   ```
+
+10. **Link the Storage**:
 
    Create a symbolic link from `public/storage` to `storage/app/public` to access uploaded files.
 
@@ -96,7 +104,7 @@ To set up the application locally, follow these steps:
    php artisan storage:link
    ```
 
-10. **Run the Application**:
+11. **Run the Application**:
 
     Start the local development server:
 
@@ -140,4 +148,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 <img width="1427" alt="Screenshot 2024-08-09 at 21 28 56" src="https://github.com/user-attachments/assets/d23a2217-ddfb-4b0e-b097-53bfc73b9bce">
 <img width="1428" alt="Screenshot 2024-08-09 at 21 28 34" src="https://github.com/user-attachments/assets/abb63c5f-28ac-40ef-be00-a6f71aca3684">
 <img width="374" alt="Screenshot 2024-08-09 at 21 26 23" src="https://github.com/user-attachments/assets/ef89f098-1383-4b51-a63f-bf379e15945a">
-

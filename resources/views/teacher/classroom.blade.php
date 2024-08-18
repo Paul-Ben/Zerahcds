@@ -57,7 +57,10 @@
                             {{ $user->role }}
                         </td>
                         <td class="px-6 py-4">
-                            Assigned
+                            Assigned |
+                            @if (array_key_exists($user->class_id, $classnames))
+                                {{$classnames[$user->class_id]}}
+                            @endif
                         </td>
                     </tr>
                 @empty

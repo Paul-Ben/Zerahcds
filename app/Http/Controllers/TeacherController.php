@@ -27,7 +27,8 @@ class TeacherController extends Controller
   {
     $user = Auth::user();
     $students = User::where('class_id', $user->class_id)->where('role', 'student')->paginate(10);
-    return view('teacher.classroom', compact('students'));
+    $classnames = Classroom::pluck('name', 'id')->toArray();
+    return view('teacher.classroom', compact('students', 'classnames'));
   }
 
   public function viewClassroom(User $user)

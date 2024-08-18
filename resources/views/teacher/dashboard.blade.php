@@ -18,7 +18,7 @@
                         {{ $students. ' '. 'Students' }}</h5>
                 </a>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
-                <a href="#"
+                <a href="{{route('teacher.students')}}"
                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View class Students
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -35,7 +35,7 @@
             </div>
             <div
                 class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
+                <a href="{{route('teacher.myclassroom')}}">
                     <h3 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         @if ($classrooms == 1)
                         {{ $classrooms. ' '.'Class'}}
@@ -45,7 +45,7 @@
                         </h5>
                 </a>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
-                <a href="#"
+                <a href="{{route('teacher.myclassroom')}}"
                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View class
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"

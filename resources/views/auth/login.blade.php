@@ -1,6 +1,14 @@
 @extends('layouts.nuapp')
 @section('content')
 <style>
+    .main_bg {
+        background-image: url("{{asset('bg_image.jpg')}}"); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        min-height: 100vh;
+    }
     .logo-container {
   display: flex;
   flex-wrap: wrap;
@@ -26,8 +34,8 @@ h1 {
   text-align: center;
 }
 </style>
-
-<div class="flex items-center justify-center min-h-screen bg-blue-100 widt" >
+<div>
+    <div class="flex items-center justify-center min-h-screen bg-blue-100 widt main_bg" >
     <div> 
         <div
             class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -93,5 +101,7 @@ h1 {
     </div>
 </div> 
 </div>
+</div>
+
  
 @endsection

@@ -16,8 +16,10 @@ class ClassroomUserController extends Controller
     {
         $users = User::where('role', '!=', 'admin')->where('role', '!=', 'user')->paginate(10);
         $classroomids = ClassroomUser::pluck('user_id')->toArray();
+        $classnames = Classroom::pluck('name', 'id')->toArray();
 
-        return view('admin.classUsers.index', compact('users', 'classroomids'));
+
+        return view('admin.classUsers.index', compact('users', 'classroomids', 'classnames'));
     }
 
     /**

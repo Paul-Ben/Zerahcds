@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -52,9 +53,9 @@ class User extends Authenticatable
     /**
      * The classes that the user belongs to.
      */
-    public function classrooms(): BelongsToMany
+    public function classroom(): BelongsTo
     {
-        return $this->belongsToMany(Classroom::class)->withPivot('role');
+        return $this->belongsTo(Classroom::class, 'name');
     }
 
     /**

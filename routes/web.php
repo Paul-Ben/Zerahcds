@@ -32,6 +32,9 @@ Route::resource('classroom', ClassroomController::class);
 Route::get('/admin/dashboard/classroom-assign', [ClassroomUserController::class, 'index'])->name('class.users');
 Route::get('/admin/dashboard/classroom-assign/{user}', [ClassroomUserController::class, 'create'])->name('class.assign');
 Route::post('/admin/dashboard/classroom-assign/{user}', [ClassroomUserController::class, 'store'])->name('class.store');
+Route::get('/admin/dashboard/user', [SearchController::class, 'adminSearchUser'])->name('admin.search-user');
+Route::get('/admin/dashboard/classuser', [SearchController::class, 'adminSearchClassUser'])->name('admin.search-classuser');
+
 
 });
 Route::middleware(['auth','role:student'])->group(function () {

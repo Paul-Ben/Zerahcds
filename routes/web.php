@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\ClassroomUserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,8 @@ Route::get('/teacher/dashboard/classroom/content', [TeacherController::class, 'c
 Route::post('/teacher/dashboard/classroom/content', [TeacherController::class, 'addContent'])->name('classroom.savecontent');
 Route::get('/teacher/dashboard/classroom/content-list', [TeacherController::class, 'viewcontentList'])->name('classroom.contentlist');
 Route::delete('/teacher/dashboard/classroom/content-delete/{content}', [TeacherController::class, 'destroyContent'])->name('teacher.content-delete');
+Route::get('/teachet/dashboard/content', [SearchController::class, 'searchContent'])->name('teacher.search-content');
+Route::get('/teachet/dashboard/student', [SearchController::class, 'searchStudent'])->name('teacher.search-student');
 
 
 Route::get('teacher/profile', [TeacherController::class, 'profileedit'])->name('teacherprofile.edit');

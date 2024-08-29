@@ -25,8 +25,8 @@ To set up the application locally, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/your-username/your-repository-name.git
-   cd your-repository-name
+   [git clone https://github.com/Paul-Ben/Zerahcds.git]
+   cd Zerahcds
    ```
 
 2. **Install Composer Dependencies**:

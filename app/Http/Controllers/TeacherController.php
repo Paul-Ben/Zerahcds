@@ -52,8 +52,8 @@ class TeacherController extends Controller
     $request->validate([
       'topic' => 'required',
       'title' => 'required',
-      'video' => 'nullable|file|mimes:mp4,mov,avi,mpeg|max:204800', // 200MB max
-      'document' => 'nullable|file|mimes:pdf|max:102400', // 100MB max
+      'video' => 'nullable|file|mimes:mp4,mov,avi,mpeg|max:209,715,200', // 200MB max
+      'document' => 'nullable|file|mimes:pdf|max:109,715,200', // 100MB max
     ]);
 
     // Assign request data to the content model

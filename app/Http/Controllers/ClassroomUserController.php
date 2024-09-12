@@ -36,15 +36,22 @@ class ClassroomUserController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $check = ClassroomUser::where('user_id', $request->user_id)->first();
-        if ($check) {
-            return redirect()->back()->with('success', 'User is already in a classroom');
-        }
         $request->validate([
             'classroom_id' => 'required',
             'role' => 'required',
         ]);
-        ClassroomUser::create($request->all());
+
+        $check = ClassroomUser::where('user_id', $request->user_id)->first();
+        
+        if ($check) {
+            $check->update([
+                'classroom_id' => $request->classroom_id,
+                'role' => $request->role,
+            ]);
+            // return redirect()->back()->with('success', 'User is already in a classroom');
+        }else {
+            ClassroomUser::create($request->all());
+        }
 
         // Update the user with the classroom_id
         $user = User::find($request->user_id);
@@ -54,6 +61,11 @@ class ClassroomUserController extends Controller
         }
 
         return redirect()->route('class.users')->with('success', 'Classroom User assigned to class successfully');
+    }
+
+    public function reassignClass(User $user, Request $request)
+    {
+
     }
 
     /**

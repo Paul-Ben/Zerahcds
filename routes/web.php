@@ -37,11 +37,15 @@ Route::get('/admin/dashboard/classuser', [SearchController::class, 'adminSearchC
 
 
 });
+
+// Student Routes
 Route::middleware(['auth','role:student'])->group(function () {
 Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
+Route::get('/student/dashboard/content', [SearchController::class, 'studentSearchContent'])->name('student.search-content');
+
 });
 
-
+//  Teacher Routes
 Route::middleware(['auth','role:teacher'])->group(function () {
 Route::get('/teacher/dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
 Route::get('/teacher/dashboard/students', [TeacherController::class, 'viewStudent'])->name('teacher.students');
@@ -59,15 +63,14 @@ Route::patch('teacher/profile', [TeacherController::class, 'profileupdate'])->na
 Route::delete('teacher/profile', [TeacherController::class, 'destroy'])->name('teacher-profile.destroy');
 
 });
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('test', function(){
-    dd(phpinfo());
-});
 
 
 require __DIR__.'/auth.php';

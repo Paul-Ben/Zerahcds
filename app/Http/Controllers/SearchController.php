@@ -21,6 +21,17 @@ class SearchController extends Controller
         return view('teacher.classcontent', compact('contents'));
     }
 
+    public function studentSearchContent(Request $request)
+    {
+        $search = $request->input('search');
+        $contents = Content::where('topic', 'like', '%' . $search . '%')
+            ->orWhere('title', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%')
+            ->paginate(10);
+
+        return view('student.dashboard', compact('contents'));
+    }
+
     public function searchStudent(Request $request)
     {
         $search = $request->input('search');

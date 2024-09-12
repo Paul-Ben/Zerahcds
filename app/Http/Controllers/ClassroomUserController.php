@@ -48,7 +48,6 @@ class ClassroomUserController extends Controller
                 'classroom_id' => $request->classroom_id,
                 'role' => $request->role,
             ]);
-            // return redirect()->back()->with('success', 'User is already in a classroom');
         }else {
             ClassroomUser::create($request->all());
         }

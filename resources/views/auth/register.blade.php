@@ -1,4 +1,4 @@
-{{-- <x-guest-layout>
+<x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,8 +49,8 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout> --}}
-@extends('layouts.nuapp')
+</x-guest-layout>
+{{-- @extends('layouts.nuapp')
 @section('content')
 <div>
     <section class="bg-slate-300 dark:bg-gray-900">
@@ -63,4 +63,4 @@
         </div>
     </section>
 </div>
-@endsection
+@endsection --}}

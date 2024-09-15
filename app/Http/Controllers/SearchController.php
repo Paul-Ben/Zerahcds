@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
 use App\Models\Classroom;
 use App\Models\ClassroomUser;
 use App\Models\Content;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SearchController extends Controller
 {
@@ -64,5 +66,15 @@ class SearchController extends Controller
         $classnames = Classroom::pluck('name', 'id')->toArray();
 
         return view('admin.classUsers.index', compact('users', 'classroomids', 'classnames'));
+    }
+
+    public function searchAttendance(Request $request)
+    {
+        $search = $request->input('search');
+        $attendance = Attendance::where('date', 'like', '%' . $search . '%')
+        ->where('class_id', Auth::user()->class_id)->paginate(20);
+
+        return view('teacher.attendance', compact('attendance'));
+
     }
 }

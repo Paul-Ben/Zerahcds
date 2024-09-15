@@ -31,6 +31,11 @@ class AdminController extends Controller
     return view('admin.user.create');
   }
 
+  public function uploadForm()
+  {
+    return view('admin.user.uploadUser');
+  }
+
   public function storeUser(Request $request)
   {
   

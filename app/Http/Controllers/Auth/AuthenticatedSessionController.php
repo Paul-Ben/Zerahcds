@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $route = match (auth()->user()->role) {
+        $route = match (Auth::user()->role) {
             'Staff' => 'staff.dashboard',
             'admin' => 'admin.dashboard',
             'teacher' => 'teacher.dashboard',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AttendanceExport;
 use App\Models\Classroom;
 use App\Models\ClassroomUser;
 use App\Models\Content;
@@ -10,7 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProfileUpdateRequest;
-
+use App\Models\Attendance;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TeacherController extends Controller
 {
@@ -44,6 +46,15 @@ class TeacherController extends Controller
     $topics = Content::where('teacher_id', $user->id)->get();
     
     return view('teacher.classcontentform', compact('topics'));
+  }
+
+  public function attendance()
+  {
+    $today = now()->toDateString();
+    $user = Auth::user();
+    $attendance = Attendance::where('class_id', $user->class_id)->where('date', $today)->paginate(20);
+
+    return view('teacher.attendance', compact('attendance', 'today'));
   }
 
   public function addContent(Request $request, Content $content)
@@ -128,4 +139,13 @@ class TeacherController extends Controller
     // Redirect to the teacher's profile edit route with a success message
     return redirect()->back()->with('success', 'Teacher profile updated successfully.');
   }
+
+  public function exportAttendance()
+{
+    // Export the attendance as an Excel file
+    return Excel::download(new AttendanceExport, 'attendance.xlsx');
+    
+    // If you want to export it as a CSV, you can use this instead:
+    // return Excel::download(new AttendanceExport, 'attendance.csv');
+}
 }

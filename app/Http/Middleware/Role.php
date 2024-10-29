@@ -20,12 +20,11 @@ class Role
             return redirect()->route('login');
         }
 
-        if($request->user()->role == $role){
+        if ($request->user()->role == $role) {
             return $next($request);
+            
         }
 
         return redirect()->back();
-        
     }
 }
-

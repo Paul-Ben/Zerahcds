@@ -46,6 +46,8 @@ Route::middleware(['auth','role:student'])->group(function () {
 Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 Route::post('/student/dashboard/attendance', [StudentController::class, 'markAttendance'])->name('student.attendance');
 Route::get('/student/dashboard/content', [SearchController::class, 'studentSearchContent'])->name('student.search-content');
+Route::get('/student/dashboard/course', [StudentController::class, 'chooseCourse'])->name('student.choose');
+Route::post('/student/dashboard/course/{user}', [StudentController::class, 'chosenCourse'])->name('student.choice');
 
 });
 

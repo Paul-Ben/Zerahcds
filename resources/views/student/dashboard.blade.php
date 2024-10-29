@@ -20,6 +20,12 @@
 
             <div class="relative border overflow-x-auto shadow-md sm:rounded-lg pt-3">
                 <div class="text-center font-semibold space-y-5 mb-3">
+                    @if ($classroom)
+                    <h1 class="text-2xl">Welcome {{Auth::user()->name}}, to your {{$classroom->name}} class.</h1>
+                    @else
+                    <h1 class="text-2xl">Welcome, {{Auth::user()->name}}.</h1>
+                    @endif
+                    
                     <h2>Class Content List</h2>
                 </div>
                 <form action="{{ route('student.search-content') }}" method="GET" class="max-w-md mx-auto mb-6">
@@ -51,6 +57,12 @@
                                 Back
                             </button>
                         </a>
+                        <a href="{{ route('student.choose') }}">
+                            <button type="button"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Choose Class
+                            </button>
+                        </a>
                     @endif
                     <form action="{{ route('student.attendance') }}" method="POST">
                         @csrf
@@ -59,7 +71,12 @@
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             My Attendance
                         </button>
-
+                        <a href="{{ route('student.choose') }}">
+                            <button type="button"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Choose Class
+                            </button>
+                        </a>
                     </form>
 
 
